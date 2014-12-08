@@ -2529,6 +2529,7 @@ class stock_inventory(osv.osv):
         'company_id': fields.many2one('res.company', 'Company', required=True, select=True, readonly=True, states={'draft': [('readonly', False)]}),
         'location_id': fields.many2one('stock.location', 'Inventoried Location', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'product_id': fields.many2one('product.product', 'Inventoried Product', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
+        'product_tmpl_id': fields.many2one('product.template', 'Product template', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
         'package_id': fields.many2one('stock.quant.package', 'Inventoried Pack', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Pack to focus your inventory on a particular Pack."),
         'partner_id': fields.many2one('res.partner', 'Inventoried Owner', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Owner to focus your inventory on a particular Owner."),
         'lot_id': fields.many2one('stock.production.lot', 'Inventoried Lot/Serial Number', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Lot/Serial Number to focus your inventory on a particular Lot/Serial Number.", copy=False),
@@ -2657,26 +2658,31 @@ class stock_inventory(osv.osv):
         location_obj = self.pool.get('stock.location')
         product_obj = self.pool.get('product.product')
         location_ids = location_obj.search(cr, uid, [('id', 'child_of', [inventory.location_id.id])], context=context)
-        domain = ' location_id in %s'
+        domain = ' stock_quant.location_id in %s'
         args = (tuple(location_ids),)
         if inventory.partner_id:
-            domain += ' and owner_id = %s'
+            domain += ' and stock_quant.owner_id = %s'
             args += (inventory.partner_id.id,)
         if inventory.lot_id:
-            domain += ' and lot_id = %s'
+            domain += ' and stock_quant.lot_id = %s'
             args += (inventory.lot_id.id,)
         if inventory.product_id:
-            domain += ' and product_id = %s'
+            domain += ' and stock_quant.product_id = %s'
             args += (inventory.product_id.id,)
+        if inventory.product_tmpl_id:
+            domain += ' and product_product.product_tmpl_id = %s'
+            args += (inventory.product_tmpl_id.id,)			
         if inventory.package_id:
-            domain += ' and package_id = %s'
+            domain += ' and stock_quant.package_id = %s'
             args += (inventory.package_id.id,)
 
         cr.execute('''
            SELECT product_id, sum(qty) as product_qty, location_id, lot_id as prod_lot_id, package_id, owner_id as partner_id
-           FROM stock_quant WHERE''' + domain + '''
+           FROM stock_quant 
+           left join product_product on product_product.id = stock_quant.product_id 
+           WHERE''' + domain + '''
            GROUP BY product_id, location_id, lot_id, package_id, partner_id
-        ''', args)
+        ''', args)		
         vals = []
         for product_line in cr.dictfetchall():
             #replace the None the dictionary by False, because falsy values are tested later on

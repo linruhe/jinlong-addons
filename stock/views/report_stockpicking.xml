@@ -37,7 +37,7 @@
 			<thead>
 				<tr>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅/色号</th>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数</th>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 平方米</th>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 单价</th>
@@ -47,7 +47,7 @@
 			<tbody t-foreach="o.move_lines" t-as="move_lines">
 				<tr >
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.product_id"/> </td>
-					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.width"/></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.width"/>/<span t-field="move_lines.conumber"/></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/></td>
  					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> <span t-field="move_lines.product_uom_qty"/></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.money"/></td>

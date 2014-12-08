@@ -88,7 +88,7 @@
             <field name="arch" type="xml">
                 <form string="Inventory Adjustment">
                 <header>
-                    <button name="prepare_inventory" states="draft" string="Start Inventory" type="object" class="oe_highlight" groups="stock.group_stock_user"/>
+                    <button name="prepare_inventory" states="draft" string="生成盘点单" type="object" class="oe_highlight" groups="stock.group_stock_user"/>
                     <button name="action_done" states="confirm" string="Validate Inventory" type="object" class="oe_highlight" groups="stock.group_stock_manager"/>
                     <button name="action_cancel_draft" states="cancel" string="Set to Draft" type="object"/>
                     <button name="action_cancel_inventory" states="confirm" string="Cancel Inventory" type="object"/>
@@ -102,12 +102,13 @@
                     <group>
                         <group>
                             <field name="location_id"/>
-                            <field name="filter" string="Inventory of" widget='radio' attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="filter" string="盘点范围" widget='radio' attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
                             <field name="date"/>
                             <field name="company_id" groups="base.group_multi_company" widget="selection"/>
-                            <field name="product_id" domain="[('type','=','product')]" attrs="{'invisible': [('filter', 'not in', ('product', 'product_owner'))]}"/>
+                            <field name="product_tmpl_id" string="产品模板" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="product_id" domain="[('type','=','product')]" attrs="{'invisible': [('filter', 'not in', ('product', 'product_owner'))]}" string="产品"/>
                             <field name="lot_id" attrs="{'invisible': [('filter', '!=', 'lot')]}" groups="stock.group_production_lot" />
                             <field name="partner_id" attrs="{'invisible': [('filter', 'not in', ('owner', 'product_owner'))]}" groups="stock.group_tracking_owner"/>
                             <field name="package_id" attrs="{'invisible': [('filter', '!=', 'pack')]}" groups="stock.group_tracking_lot"/>
@@ -115,7 +116,7 @@
                     </group>
                     <notebook attrs="{'invisible':[('state','=','draft')]}">
                         <page string="Inventory Details" >
-                            <button name="reset_real_qty" states="confirm" string="⇒ Set quantities to 0" type="object" class="oe_link oe_right" groups="stock.group_stock_user"/>
+                            <button name="reset_real_qty" states="confirm" string="⇒ 设置帐面为零" type="object" class="oe_link oe_right" groups="stock.group_stock_user"/>
                             <field name="line_ids" string="Inventory Details" context="{'default_location_id': location_id,  'default_product_id': product_id, 'default_prod_lot_id': lot_id, 'default_package_id': package_id, 'default_partner_id': partner_id}">
                                 <tree string="Inventory Details" editable="bottom" colors="blue: product_qty != theoretical_qty; red: theoretical_qty &lt; 0">
                                     <field context="{'location':location_id, 'uom':product_uom_id, 'to_date':parent.date}" name="product_id" on_change="on_change_product_id(product_id,product_uom_id,theoretical_qty,context)" domain="[('type','=','product')]"/>
@@ -124,8 +125,8 @@
                                     <field name="prod_lot_id" on_change="restrict_change(theoretical_qty)" domain="[('product_id', '=', product_id)]" context="{'default_product_id': product_id}"  groups="stock.group_production_lot"/>
                                     <field name="package_id" on_change="restrict_change(theoretical_qty)" groups="stock.group_tracking_lot"/>
                                     <field name="partner_id" on_change="restrict_change(theoretical_qty)" groups="stock.group_tracking_owner"/>
-                                    <field name="theoretical_qty" readonly="1"/>
-                                    <field name="product_qty" string="Real Quantity"/>
+                                    <field name="theoretical_qty" readonly="1" string="帐面数量"/>
+                                    <field name="product_qty" string="实盘数量"/>
                                     <field name="state" invisible="True"/>
                                 </tree>
                             </field>
