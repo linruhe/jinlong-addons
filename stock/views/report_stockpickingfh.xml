@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_pickingfh">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+				
+                     <div class="page">  
+                             <div t-if="o.picking_type_id.code=='incoming' and o.partner_id">
+                                 <span><strong>Supplier Address:</strong></span>
+                             </div>
+                             <div t-if="o.picking_type_id.code=='internal' and o.partner_id">
+                                 <span><strong>Warehouse Address:</strong></span>
+                             </div>
+                             <div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
+                                 <span><strong>Customer Address:</strong></span>
+                             </div>
+                             <div t-if="o.partner_id" name="partner_header">
+                                 <div t-field="o.partner_id" 
+                                    t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                                <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
+                             </div>
+                             
+                             <h2 align = "center">
+                             <span t-field="o.picking_type_id"/>: 
+                             <span t-field="o.name"/>
+                             </h2>
+                            <table class="table table-condensed" >
+                              <thead>
+                                <tr>
+                                      <th>Product</th><!--名称-->
+                                      <th class="text-right"><strong>卷数</strong></th><!--支数-->
+                                      <th class="text-right"><strong>宽幅</strong></th><!--米-->
+                                      <th class="text-right"><strong>数量</strong></th><!--平米-->
+                                      <th class="text-right"><strong>单价</strong></th><!--价格-->
+                                      <th class="text-right"><strong>金额</strong></th><!--金额-->
+                                  
+                                </tr>
+                              </thead>
+                              <tbody t-foreach="o.move_lines" t-as="move_lines">
+                                <tr>
+                                    <td><span t-field="move_lines.product_id"/></td>
+                                    <td class ="text-right"><span t-field="move_lines.number"/></td>
+                                    <td class ="text-right"><span t-field="move_lines.width"/></td>
+                                      <td class ="text-right"><span t-field="move_lines.product_uom_qty"/></td>
+                                    <td class ="text-right"><span t-field="move_lines.money"/></td>
+                                    <td class ="text-right"><span t-field="move_lines.Amount"/></td>
+                                </tr>
+                                <tr>
+                                    <td class ="text-left" colspan = "6"><span t-field="move_lines.name"/></td>
+                                </tr>
+                              </tbody>
+                              
+			                   
+                            </table>
+                               <div class="row">
+			                        <div class="col-xs-4 pull-right">
+			                            <table class="table table-condensed">
+			                                <tr class="border-black">
+			                                    <td><strong>汇总</strong></td>
+			                                    <td class="text-right">
+			                                        <span t-field="o.number"
+			                                            t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+			                                    </td>
+			                                </tr>
+			                                <tr>
+			                                    <td>卷数</td>
+			                                    <td class="text-right">
+			                                        <span t-field="o.Amount"
+			                                            t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+			                                    </td>
+			                                </tr>
+			                                <tr class="border-black">
+			                                    <td><strong>金额</strong></td>
+			                                    <td class="text-right">
+			                                        <span t-field="o.Amount"
+			                                            t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+			                                    </td>
+			                                </tr>
+			                                
+					                       
+			                            </table>
+			                        </div>
+			                    </div>
+			                         <div class="row">
+			                        <div >
+			                            <table class="table table-condensed" width = "100">
+			                             <tr  class="border-black">
+					                           <td class="text-left">
+					                            1.司机姓名:<br/>
+					                            2.车辆号码:<br/> 
+					                            3.证件号码:<br/>
+					                            4.联系电话:
+					                            </td>
+					                            <td class="text-left">
+					                            1.运费:<br/>
+					                            2.重量:<br/>
+					                            3.业务员:
+					                            </td>
+					                        </tr>
+			                            </table>
+			                            </div>
+			                            </div>
+			                    
+                          </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+    </data>
+</openerp>

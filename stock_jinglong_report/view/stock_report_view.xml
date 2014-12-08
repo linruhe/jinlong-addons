@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <record id="stock_report_tree_current" model="ir.ui.view">
+            <field name="name">stock.report.tree.current</field>
+            <field name="model">stock.report.current</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Stock Report" editable="top">
+                    <field name="product_id"/>       
+                    <field name="lot_id"/>                
+                    <field name="qty"/> 
+                    <field name="in_date"/>    
+                    <field name="location_id"/>   
+                    <field name="a"/>   
+                    <field name="b"/>  
+                    <field name="c"/>   
+                    <field name="d"/>   
+                </tree>
+            </field>
+        </record>            
+        <record id="action_stock_report_tree_current" model="ir.actions.act_window">
+            <field name="name">Stock Current</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.report.current</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Member card in you system.
+              </p><p>
+                Member Card.
+              </p>
+            </field>
+        </record>
+
+
+    
+    <menuitem id="base.yatai_id_100" name="数据导入" parent="base.menu_reporting" sequence="2" />
+    <menuitem id="base.yatai_id_101" name="已导入数据查询" parent="base.menu_reporting" sequence="3" />
+    <menuitem id="menu_member_card_form_yatai_id_1" name="Member Card" parent="base.yatai_id_101" action="action_stock_report_tree_current" sequence="1"/>
+</data>
+</openerp>

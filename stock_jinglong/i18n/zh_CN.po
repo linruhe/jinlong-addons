@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_jinglong
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-10 06:13+0000\n"
+"PO-Revision-Date: 2014-11-10 06:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_jinglong
+#: field:stock.picking,Amount:0
+msgid "Amount"
+msgstr "Amount"
+
+#. module: stock_jinglong
+#: model:ir.model,name:stock_jinglong.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "批次/序列号"
+
+#. module: stock_jinglong
+#: model:ir.model,name:stock_jinglong.model_stock_picking
+msgid "Picking List"
+msgstr "分拣单"
+
+#. module: stock_jinglong
+#: model:ir.model,name:stock_jinglong.model_product_product
+msgid "Product"
+msgstr "产品"
+
+#. module: stock_jinglong
+#: model:ir.model,name:stock_jinglong.model_stock_quant
+msgid "Quants"
+msgstr "存货"
+
+#. module: stock_jinglong
+#: model:ir.model,name:stock_jinglong.model_stock_move
+msgid "Stock Move"
+msgstr "库存调拨"
+
+#. module: stock_jinglong
+#: field:stock.move,Amount:0
+msgid "amount"
+msgstr "总金额"
+
+#. module: stock_jinglong
+#: field:stock.move,conumber:0
+#: field:stock.production.lot,conumber:0
+msgid "conumber"
+msgstr "色号"
+
+#. module: stock_jinglong
+#: field:stock.production.lot,customer:0
+msgid "customer"
+msgstr "客户"
+
+#. module: stock_jinglong
+#: field:stock.move,meter:0
+#: field:stock.production.lot,meter:0
+msgid "meter"
+msgstr "卷长(米)"
+
+#. module: stock_jinglong
+#: field:stock.move,money:0
+msgid "money"
+msgstr "单价"
+
+#. module: stock_jinglong
+#: field:stock.production.lot,num:0
+msgid "num"
+msgstr "面积(M2)"
+
+#. module: stock_jinglong
+#: field:stock.move,number:0
+#: field:stock.picking,number:0
+msgid "number"
+msgstr "卷数"
+
+#. module: stock_jinglong
+#: field:stock.production.lot,team:0
+msgid "team"
+msgstr "班组"
+
+#. module: stock_jinglong
+#: field:product.product,tempname:0
+msgid "tempname"
+msgstr "名称"
+
+#. module: stock_jinglong
+#: field:stock.production.lot,width:0
+msgid "width"
+msgstr "宽幅"
+
