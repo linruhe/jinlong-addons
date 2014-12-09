@@ -101,7 +101,7 @@
             </t>
 
             <ul class="list-inline">
-                <li>Page:</li>
+                <li>①存根（白）②财务（红）③客户（兰）④回单（红）页码:</li>
                 <li><span class="page"/></li>
                 <li>/</li>
                 <li><span class="topage"/></li>

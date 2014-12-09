@@ -7,22 +7,22 @@
                     <t t-call="report.external_layout">
 				
                      <div class="page">  
-                              <table  width ="100%">
+                             <table width="100%" style="font-size:25px">
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>  
                                              <div t-if="o.picking_type_id.code=='outgoing' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>   
                                              <div t-if="o.picking_type_id.code=='internal' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>                                                  
 					</td>
 				</tr>
 				<tr>
-					<td width="65%">
+					<td width="50%">
 						客户名称：<span t-field="o.partner_id"/>
 					</td>
 					<td>
@@ -33,19 +33,19 @@
 					</td>
 				</tr>
                                </table>
-                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto">
+                              <table width="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto;font-size:25px">
 			<thead>
 				<tr>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅/色号</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 数量</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 单价</th>
-					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 总价</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅/色号</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 数量</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 单价</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 总价</th>
 				</tr>
 			</thead>
 			<tbody t-foreach="o.move_lines" t-as="move_lines">
-				<tr >
+				<tr>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.product_id"/> </td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.width"/>/<span t-field="move_lines.conumber"/></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/></td>
@@ -53,32 +53,32 @@
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.money"/></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.Amount"/></td>
  				</tr>
-				<tr >
+				<tr>
 					 <td colspan="6" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.name"/> </td>
  				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 本单合计：</th>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"/>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> </th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">  </th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.Amount"/></th>
 				</tr>
                                 <tr>
-                                   <td  colspan="2" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><br/><p>1、司机姓名：</p><p>2、车辆号码：</p><p>3、证件号码：</p>4、联系电话:</td>
-                                   <td  colspan="4"><br/>签字：<br/><br/>盖章：</td>
+                                   <td colspan="2" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><br/><p>1、司机姓名：</p><p>2、车辆号码：</p><p>3、证件号码：</p>4、联系电话:</td>
+                                   <td colspan="4"><br/>签字：<br/><br/>盖章：</td>
                               </tr>
 			</tfoot>
 		</table>
-               <table width="100%">
+               <table width="100%" style="font-size:25px">
                     <tr height="150%">
                             <td width="33%">业务经办：</td>
                             <td width="33%">开票：</td>
                             <td width="34%">保管员：</td>
                      </tr>
-               </table>			                           
+               </table>			        			                           
                           </div>
                     </t>
                  </t>
