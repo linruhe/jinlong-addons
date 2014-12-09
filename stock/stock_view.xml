@@ -1362,7 +1362,7 @@
                                 <div class="oe_kanban_content">
                                     <h4 class="text-center"><strong><field name="complete_name"/></strong></h4>
                                     <div class="oe_right">
-                                        <a name="open_barcode_interface" type="object">
+                                        <a name="150" type="action">
                                             <img src="/stock/static/src/img/scan.png"
                                                 alt="Click to launch the barcode interface"
                                                 class="oe_stock_scan_image" title="Click to launch the barcode interface"/>
