@@ -62,9 +62,9 @@
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 合计：</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> </th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.squre"/></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">  </th>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.Amount"/></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.Amount"/></th>
 				</tr>
 			</tfoot>
 		</table>

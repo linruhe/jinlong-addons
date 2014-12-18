@@ -102,8 +102,16 @@ class stock_picking(osv.osv):
                 x = x + line.number                            
             res[i.id] = x            
         return res
-    
+    def compute_squre(self,cr,uid,ids,name,args,context=None):
+        res = {}
+        for i in self.browse(cr,uid,ids,context =context):
+            x = 0
+            for line in i.move_lines :
+                x = x + line.product_qty                            
+            res[i.id] = x            
+        return res    
     _columns = {
         'number': fields.function(compute_number,type='float',string ="number",store=True,readonly =True),#卷数
         'Amount': fields.function(compute_amount,type='float',string ="Amount",store=True,readonly =True),#卷数
+        'squre': fields.function(compute_squre,type='float',string ="squre",store=True,readonly =True),#平米总数
     }    
