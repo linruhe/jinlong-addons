@@ -12,6 +12,7 @@ class product_query_wizard(osv.osv_memory):
         'choose_attribute': fields.boolean('Choose Attributes of products'),
         'date': fields.datetime('Date', required=True),
         'test': fields.char('test'),
+		'product_tmpl_id': fields.many2one('product.template','Product Template'),
 		'attribute_line_ids': fields.many2one('product.attribute.value','Attribute_1'),
         'attribute_value_1': fields.many2one('product.attribute.value','Attribute_1'),
         'attribute_value_2': fields.many2one('product.attribute.value','Attribute_2'),
@@ -81,7 +82,7 @@ class product_query_wizard(osv.osv_memory):
         if data['choose_attribute'] :
             return {
                 'domain': "[('product_id.attribute_value_ids', 'like', '"+test +"'),('product_id.attribute_value_ids', 'like', '"+value_1+"'),('product_id.attribute_value_ids', 'like', '"+value_2 +"'),('product_id.attribute_value_ids', 'like', '"+value_3 +"'),('product_id.attribute_value_ids', 'like', '"+value_4+"'),('product_id.attribute_value_ids', 'like', '"+value_5+"'),('product_id.attribute_value_ids', 'like', '" +value_6 + "'),('product_id.attribute_value_ids', 'like', '" +value_7 + "'),('product_id.attribute_value_ids', 'like', '" +value_8 + "')]",
-                'name': _('Stock Value At Date'),
+                'name': _('Stock'),
                 'view_type': 'form',
                 'view_mode': 'tree,form,graph',
                 'res_model': 'stock.quant',
@@ -91,7 +92,7 @@ class product_query_wizard(osv.osv_memory):
         else :
             return {
                 'domain': "[]",
-                'name': _('Stock Value At Date'),
+                'name': _('Stock'),
                 'view_type': 'form',
                 'view_mode': 'tree,form,graph',
                 'res_model': 'stock.quant',
