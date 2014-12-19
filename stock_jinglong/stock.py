@@ -33,13 +33,29 @@ class stock_production_lot(osv.osv):
         'width':fields.float('width',help=""),#宽幅
     }
    
-#class stock_quant(osv.osv):
- #   _inherit= 'stock.quant'
-  #  _columns = {
-	#}
-   # _sql_constraints = [
+class stock_quant(osv.osv):
+    _inherit= 'stock.quant'
+    def width_function(self, cr, uid, ids, name, args, context=None):
+        res = {}
+        for m in self.browse(cr, uid, ids, context=context):
+            res[m.id] = m.lot_id.width
+        return res
+    
+    def conumber_function(self, cr, uid, ids, name, args, context=None):
+        res = {}
+        for m in self.browse(cr, uid, ids, context=context):
+            res[m.id] = m.lot_id.conumber
+        return res
+            
+    _columns = {
+        'width': fields.function(width_function, type = 'char',string = "width",store=True,readonly=True),         
+        'conumber': fields.function(conumber_function, type = 'char',string = "conumber",store=True,readonly=True),
+        'meter': fields.related('lot_id', 'meter', type='char', string='meter', help="meter"),
+	}
+    
+    _sql_constraints = [
         #('lot_location_uniq', 'unique (lot_id, location_id)', ''),
-    #]
+    ]
 
 
 class product_product(osv.osv):
