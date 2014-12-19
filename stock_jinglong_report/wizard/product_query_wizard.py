@@ -25,7 +25,7 @@ class product_query_wizard(osv.osv_memory):
 
     _defaults = {
         'choose_date': False,
-        'choose_attribute': True,
+        'choose_attribute': False,
         'date': fields.datetime.now,
     }
 
@@ -74,15 +74,17 @@ class product_query_wizard(osv.osv_memory):
                                                          
         ctx = context.copy()
         #ctx['history_date'] = data['date']
-        #ctx['search_default_group_by_product'] = True
-        #ctx['search_default_group_by_location'] = True
+        ctx['search_default_internal_loc'] = True
+        ctx['search_default_productgroup'] = True
+        ctx['search_default_width'] = True
+        ctx['search_default_conumber'] = True
         if data['choose_attribute'] :
             return {
-                'domain': "[('attribute_value_ids', 'like', '"+test +"'),('attribute_value_ids', 'like', '"+value_1+"'),('attribute_value_ids', 'like', '"+value_2 +"'),('attribute_value_ids', 'like', '"+value_3 +"'),('attribute_value_ids', 'like', '"+value_4+"'),('attribute_value_ids', 'like', '"+value_5+"'),('attribute_value_ids', 'like', '" +value_6 + "'),('attribute_value_ids', 'like', '" +value_7 + "'),('attribute_value_ids', 'like', '" +value_8 + "')]",
+                'domain': "[('product_id.attribute_value_ids', 'like', '"+test +"'),('product_id.attribute_value_ids', 'like', '"+value_1+"'),('product_id.attribute_value_ids', 'like', '"+value_2 +"'),('product_id.attribute_value_ids', 'like', '"+value_3 +"'),('product_id.attribute_value_ids', 'like', '"+value_4+"'),('product_id.attribute_value_ids', 'like', '"+value_5+"'),('product_id.attribute_value_ids', 'like', '" +value_6 + "'),('product_id.attribute_value_ids', 'like', '" +value_7 + "'),('product_id.attribute_value_ids', 'like', '" +value_8 + "')]",
                 'name': _('Stock Value At Date'),
                 'view_type': 'form',
                 'view_mode': 'tree,form,graph',
-                'res_model': 'product.product',
+                'res_model': 'stock.quant',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
             }
@@ -92,7 +94,7 @@ class product_query_wizard(osv.osv_memory):
                 'name': _('Stock Value At Date'),
                 'view_type': 'form',
                 'view_mode': 'tree,form,graph',
-                'res_model': 'product.product',
+                'res_model': 'stock.quant',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
             }

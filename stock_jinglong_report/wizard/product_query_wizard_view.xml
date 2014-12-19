@@ -7,17 +7,21 @@
             <field name="model">product.query.wizard</field>
             <field name="arch" type="xml">
                 <form string="Choose your date">
+				<group>
+					<field name="choose_attribute" string="请选择产品的属性"/>
+				</group>
                     <p class="oe_gray" attrs="{'invisible': [('choose_date', '=', False)]}">
                         Choose the date for which you want to get the stock valuation of your products.
 
                         This will filter the stock operation that weren't done at the selected date, to retreive the quantity
                         you had, and gives you the inventory value according to the standard price used at that time.
                     </p>
-                    <p class="oe_gray" attrs="{'invisible': [('choose_date', '=', False)]}">
-                        Retrieve the stock valuation of your products at current day
+					
+                    <p class="oe_gray" attrs="{'invisible': [('choose_attribute', '=', False)]}">
+                        此查询对服务资源消耗较大，请尽量少用此选项！
                     </p>
                     <group>
-                    <field name="choose_attribute" string="请选择产品的属性"/>
+                        
                         <field name="attribute_value_4" string="厚度/克重" domain="[('attribute_id', '=', 19)]" attrs="{'invisible': [('choose_attribute', '=', False)]}"/> 
                         <field name="attribute_value_6" string="色号" domain="[('attribute_id', '=', 9)]" attrs="{'invisible': [('choose_attribute', '=', False)]}"/>
                         <field name="attribute_value_3" string="网型" domain="[('attribute_id', '=', 8)]" attrs="{'invisible': [('choose_attribute', '=', False)]}"/>
