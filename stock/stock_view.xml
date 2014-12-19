@@ -108,6 +108,7 @@
                             <field name="date"/>
                             <field name="company_id" groups="base.group_multi_company" widget="selection"/>
                             <field name="product_tmpl_id" string="产品模板" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="attribute_value_1" string="产品属性" domain="[('attribute_id', '=', 8)]" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="product_id" domain="[('type','=','product')]" attrs="{'invisible': [('filter', 'not in', ('product', 'product_owner'))]}" string="产品"/>
                             <field name="lot_id" attrs="{'invisible': [('filter', '!=', 'lot')]}" groups="stock.group_production_lot" />
                             <field name="partner_id" attrs="{'invisible': [('filter', 'not in', ('owner', 'product_owner'))]}" groups="stock.group_tracking_owner"/>

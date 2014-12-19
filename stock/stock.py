@@ -2530,6 +2530,7 @@ class stock_inventory(osv.osv):
         'location_id': fields.many2one('stock.location', 'Inventoried Location', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'product_id': fields.many2one('product.product', 'Inventoried Product', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
         'product_tmpl_id': fields.many2one('product.template', 'Product template', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
+        'attribute_value_1': fields.many2one('product.attribute.value','Attribute_1'),
         'package_id': fields.many2one('stock.quant.package', 'Inventoried Pack', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Pack to focus your inventory on a particular Pack."),
         'partner_id': fields.many2one('res.partner', 'Inventoried Owner', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Owner to focus your inventory on a particular Owner."),
         'lot_id': fields.many2one('stock.production.lot', 'Inventoried Lot/Serial Number', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Lot/Serial Number to focus your inventory on a particular Lot/Serial Number.", copy=False),
@@ -2672,6 +2673,9 @@ class stock_inventory(osv.osv):
         if inventory.product_tmpl_id:
             domain += ' and product_product.product_tmpl_id = %s'
             args += (inventory.product_tmpl_id.id,)			
+        if inventory.attribute_value_1:
+            domain += ' and product_product.tempname like %s'
+            args += ('%'+inventory.attribute_value_1.name+'%',)                    
         if inventory.package_id:
             domain += ' and stock_quant.package_id = %s'
             args += (inventory.package_id.id,)
