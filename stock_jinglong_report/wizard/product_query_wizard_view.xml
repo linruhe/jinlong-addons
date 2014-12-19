@@ -40,14 +40,16 @@
             </field>
         </record>
         <record id="action_product_query_wizard" model="ir.actions.act_window">
-            <field name="name">产品查询向导</field>
+            <field name="name">库存查询向导</field>
             <field name="res_model">product.query.wizard</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_product_query_wizard"/>
             <field name="target">new</field>
         </record>
-        <menuitem id="menu_action_product_query_wizard" string="产品查询向导" action="action_product_query_wizard" parent="stock.menu_stock_product" sequence="15"/>
+        <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.menu_stock_product" sequence="15"/>
+        <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.next_id_61" groups="base.group_user" sequence="15"/>
+
     </data>
 </openerp>
 

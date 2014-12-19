@@ -1728,7 +1728,7 @@
         
         <menuitem id="menu_stock_procurement" name="Automatic Procurements" parent="stock.menu_stock_configuration" sequence="5"/>
         <menuitem action="action_orderpoint_form" id="menu_stock_order_points" name = "订货点" parent="stock.menu_stock_configuration"  groups="base.group_no_one" sequence="10"/>
-        <menuitem id="stock.next_id_61" name="Warehouse" sequence="15" parent="base.menu_reporting" groups="group_stock_manager"/>
+        <menuitem id="stock.next_id_61" name="Warehouse" sequence="15" parent="base.menu_reporting" groups="base.group_user"/>
         <menuitem id="menu_quants" name="存货" parent="menu_traceability" sequence="20" action="quantsact" groups="base.group_no_one"/>
         <menuitem id="menu_procurement_rules" name="Procurement Rules" parent="stock.menu_stock_configuration" action="procrules" groups="base.group_no_one"/>
         <menuitem id="menu_pickingtype" name="单据类型" parent="stock.menu_stock_configuration" action="action_picking_type_list"/>
