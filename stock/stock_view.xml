@@ -1643,8 +1643,8 @@
                        <filter name="productgroup" string='Product' context="{'group_by' : 'product_id'}"/>
                        <filter string='Owner' context="{'group_by' : 'owner_id'}" groups="stock.group_tracking_owner"/>
                        <filter string='Lot' context="{'group_by' : 'lot_id'}" groups="stock.group_production_lot"/>
-                       <filter string="宽幅" context="{'group_by' : 'width'}" />
-                       <filter string="色号" context="{'group_by' : 'conumber'}" />
+                       <filter name="width" string="宽幅" context="{'group_by' : 'width'}" />
+                       <filter name="conumber" string="色号" context="{'group_by' : 'conumber'}" />
                        <filter name="locationgroup" string='Location' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'location_id'}"/>
                        <filter string='Package' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'package_id'}" groups="stock.group_tracking_lot"/>
                        <filter string='Packaging' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'packaging_type_id'}" groups="stock.group_tracking_lot"/>
