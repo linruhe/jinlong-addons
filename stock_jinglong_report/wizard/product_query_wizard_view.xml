@@ -49,6 +49,7 @@
         </record>
         <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.menu_stock_product" sequence="15"/>
         <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.next_id_61" groups="base.group_user" sequence="15"/>
+        <menuitem id="menu_quants2" name="通用库存查询" parent="stock.next_id_61" sequence="20" action="stock.quantsact" groups="base.group_user"/>
 
     </data>
 </openerp>
