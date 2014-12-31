@@ -1639,8 +1639,7 @@
                     <field name="lot_id" groups="stock.group_production_lot"/>
                     <field name="owner_id" groups="stock.group_tracking_owner"/>
                     <group expand='0' string='Filters'>
-                        <filter name='internal_loc' string="Internal Locations" domain="[('location_id.usage','=', 'internal')]"/>
-						<filter name='qty_avalibity' string="可用库存" domain="[('qty','>=', '1')]"/>
+                        <filter name='internal_loc' string="Internal Locations" domain="[('location_id.usage','=', 'internal'),('qty','>=', '1')]"/>
                     </group>
                     <group expand='0' string='Group by...'>
                        <filter name="productgroup" string='Product' context="{'group_by' : 'product_id'}"/>

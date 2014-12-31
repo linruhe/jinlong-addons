@@ -76,7 +76,6 @@ class product_query_wizard(osv.osv_memory):
         ctx = context.copy()
         #ctx['history_date'] = data['date']
         ctx['search_default_internal_loc'] = True
-        ctx['search_default_qty_avalibity'] = True
         ctx['search_default_productgroup'] = True
         ctx['search_default_width'] = True
         ctx['search_default_conumber'] = True
