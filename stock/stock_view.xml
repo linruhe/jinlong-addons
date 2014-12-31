@@ -117,7 +117,6 @@
                     </group>
                     <notebook attrs="{'invisible':[('state','=','draft')]}">
                         <page string="Inventory Details" >
-                            <button name="reset_real_qty" states="confirm" string="⇒ 设置帐面为零" type="object" class="oe_link oe_right" groups="stock.group_stock_user"/>
                             <field name="line_ids" string="Inventory Details" context="{'default_location_id': location_id,  'default_product_id': product_id, 'default_prod_lot_id': lot_id, 'default_package_id': package_id, 'default_partner_id': partner_id}">
                                 <tree string="Inventory Details" editable="bottom" colors="blue: product_qty != theoretical_qty; red: theoretical_qty &lt; 0">
                                     <field context="{'location':location_id, 'uom':product_uom_id, 'to_date':parent.date}" name="product_id" on_change="on_change_product_id(product_id,product_uom_id,theoretical_qty,context)" domain="[('type','=','product')]"/>
@@ -138,6 +137,9 @@
                             <li>If a product is not at the right place, set the checked quantity to 0 and create a new line with correct location.</li>
                             </ul>
                         </page>
+						<page string="盘点设置">
+                            <button name="reset_real_qty" states="confirm" string="⇒ 设置帐面为零" type="object" class="oe_link oe_right" groups="stock.group_stock_user"/>
+						</page>
                         <page string="Inventory Adjustments" attrs="{'invisible': [('state', '!=', 'done')]}">
                             <field name="move_ids">
                                 <tree colors="grey:scrapped == True" string="Stock Moves">
