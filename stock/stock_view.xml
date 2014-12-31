@@ -1638,6 +1638,7 @@
                     <field name="owner_id" groups="stock.group_tracking_owner"/>
                     <group expand='0' string='Filters'>
                         <filter name='internal_loc' string="Internal Locations" domain="[('location_id.usage','=', 'internal')]"/>
+						<filter name='qty_avalibity' string="可用库存" domain="[('qty','>=', '1')]"/>
                     </group>
                     <group expand='0' string='Group by...'>
                        <filter name="productgroup" string='Product' context="{'group_by' : 'product_id'}"/>
@@ -1715,10 +1716,10 @@
             <field name="model">stock.quant</field>
             <field eval="12" name="priority"/>
             <field name="arch" type="xml">
-                <graph string="Quants">
-                    <field name="product_id"/>
-                    <field name="qty"/>
-                    <field name="location_id"/>
+                <graph string="Quants" type="pivot">
+                    <field name="product_id" type="row"/>
+                    <field name="qty" type="measure"/>
+                    <!-- <field name="location_id"/> -->
                 </graph>
             </field>
         </record>
