@@ -54,12 +54,12 @@
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.Amount"/></td>
  				</tr>
 				<tr>
-					 <td colspan="6" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.name"/> </td>
+					 <td colspan="6" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.name"/> </td>
  				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 本单合计：</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 本单(<span t-field="o.name"/>)合计：</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"/>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.squre"/></th>
