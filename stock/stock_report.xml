@@ -19,7 +19,7 @@
             file="stock.report_inventory" 
         />
         <report 
-            string="发货单打印" 
+            string="明细单打印" 
             id="action_report_pickingfh" 
             model="stock.picking" 
             report_type="qweb-pdf"
