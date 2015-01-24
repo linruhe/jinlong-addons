@@ -44,22 +44,19 @@
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 总价</th>
 				</tr>
 			</thead>
-			<tbody t-foreach="o.move_lines" t-as="move_lines">
+			<tbody t-foreach="o.move_lines2" t-as="move_lines">
 				<tr >
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.product_id"/> </td>
-					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.width"/>/<span t-field="move_lines.conumber"/></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/></td>
- 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> <span t-field="move_lines.product_uom_qty"/></td>
+ 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> <span t-field="move_lines.product_qty"/></td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.money"/></td>
-					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.Amount"/></td>
- 				</tr>
-				<tr >
-					 <td colspan="6" style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.name"/> </td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.amount"/></td>
  				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 合计：</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 合计（<span t-field="o.name"/>）：</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.squre"/></th>
