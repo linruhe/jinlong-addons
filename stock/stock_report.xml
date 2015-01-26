@@ -20,12 +20,21 @@
         />
         <report 
             string="明细单打印" 
+            id="action_report_pickingmx" 
+            model="stock.picking" 
+            report_type="qweb-pdf"
+            name="stock.report_pickingmx" 
+            file="stock.report_pickingmx" 
+        />
+        <report 
+            string="发货单打印" 
             id="action_report_pickingfh" 
             model="stock.picking" 
             report_type="qweb-pdf"
             name="stock.report_pickingfh" 
             file="stock.report_pickingfh" 
-        />
+        />		
+		
         <report auto="False" id="report_product_history" model="product.product" name="stock.product.history" string="Stock Level Forecast"/>
         <report id="action_report_quant_package_barcode" model="stock.quant.package" report_type="qweb-pdf" name="stock.report_package_barcode" string="Package BarCode with Contents" file="stock.report_package_barcode"/>
         <report id="action_report_quant_package_barcode_small" model="stock.quant.package" report_type="qweb-pdf" name="stock.report_package_barcode_small" string="Package BarCode" file="stock.report_package_barcode"/>
