@@ -11,13 +11,13 @@
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>  
                                              <div t-if="o.picking_type_id.code=='outgoing' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>   
                                              <div t-if="o.picking_type_id.code=='internal' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
                                               </div>                                                  
 					</td>
 				</tr>
@@ -33,7 +33,7 @@
 					</td>
 				</tr>
                                </table>
-                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto">
+                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto;font-size:25px">
 			<thead>
 				<tr>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
