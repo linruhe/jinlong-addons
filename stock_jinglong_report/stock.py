@@ -59,7 +59,7 @@ class stock_move2(osv.osv):
 
     def _select(self):
         select_str = """
-             SELECT c.picking_id::text || '-' || c.product_id::text AS id ,
+             SELECT c.picking_id::text || '-' || c.product_id::text || '-' || case when c.money is null  then 0 else c.money end::text AS id ,
 					c.picking_id as picking_id ,
                     c.product_id as product_id,
                     sum(c.product_qty) as product_qty,
