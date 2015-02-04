@@ -38,7 +38,7 @@
 				<tr>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅/色号</th>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数（平方）</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 说明</th>
 				</tr>
 			</thead>
@@ -46,7 +46,7 @@
 				<tr>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.product_id"/> </td>
 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.width"/>/<span t-field="move_lines.conumber"/></td>
-					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/>（<span t-field="move_lines.product_qty"/>）</td>
  					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.name"/> </td>
  				</tr>
 				<tr>
@@ -56,7 +56,7 @@
 				<tr>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 本单(<span t-field="o.name"/>)合计：</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"/>
-					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/>（<span t-field="o.squre"/>）</th>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"></th>
 				</tr>
                                 
