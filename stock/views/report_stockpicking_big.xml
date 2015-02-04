@@ -22,7 +22,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td width="45%">
+					<td width="50%">
 						客户名称：<span t-field="o.partner_id"/>
 					</td>
 					<td>

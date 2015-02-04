@@ -7,7 +7,7 @@
                     <t t-call="report.external_layout">
 				
                      <div class="page">  
-                            <table  width ="100%">
+                            <table  width ="100%" style="font-size:25px">
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
@@ -22,7 +22,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td width="65%">
+					<td width="50%">
 						客户名称：<span t-field="o.partner_id"/>
 					</td>
 					<td>
@@ -73,7 +73,7 @@
                               </tr>
 			</tfoot>
 		</table>
-               <table width="100%">
+               <table width="100%" style="font-size:25px">
                     <tr height="150%">
                             <td width="33%">业务经办：</td>
                             <td width="33%">开票：</td>
