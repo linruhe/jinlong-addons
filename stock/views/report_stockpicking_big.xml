@@ -7,22 +7,22 @@
                     <t t-call="report.external_layout">
 				
                      <div class="page">  
-                            <table  width ="100%">
+                            <table  width ="100%" style="font-size:25px">
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> 汇总）</h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> 汇总）</h1>
                                               </div>  
                                              <div t-if="o.picking_type_id.code=='outgoing' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h1>
                                               </div>   
                                              <div t-if="o.picking_type_id.code=='internal' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h3>
+						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h1>
                                               </div>                                                  
 					</td>
 				</tr>
 				<tr>
-					<td width="65%">
+					<td width="45%">
 						客户名称：<span t-field="o.partner_id"/>
 					</td>
 					<td>
@@ -33,7 +33,7 @@
 					</td>
 				</tr>
                                </table>
-                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto">
+                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto;font-size:25px">
 			<thead>
 				<tr>
 					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
@@ -65,7 +65,7 @@
 				</tr>
 			</tfoot>
 		</table>
-               <table width="100%">
+               <table width="100%" style="font-size:25px">
                     <tr height="150%">
                             <td width="25%">业务经办：</td>
                             <td width="25%">开票：</td>

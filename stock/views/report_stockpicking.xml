@@ -11,13 +11,13 @@
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> （汇总）</h3>
                                               </div>  
                                              <div t-if="o.picking_type_id.code=='outgoing' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> （汇总）</h3>
                                               </div>   
                                              <div t-if="o.picking_type_id.code=='internal' ">
-						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h3>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总） </h3>
                                               </div>                                                  
 					</td>
 				</tr>
@@ -67,9 +67,10 @@
 		</table>
                <table width="100%">
                     <tr height="150%">
-                            <td width="33%">业务经办：</td>
-                            <td width="33%">开票：</td>
-                            <td width="34%">保管员：</td>
+                            <td width="25%">业务经办：</td>
+                            <td width="25%">开票：</td>
+                            <td width="25%">保管员：</td>
+                            <td width="25%">班组： <span t-field="o.note"/></td>
                      </tr>
                </table>
                              

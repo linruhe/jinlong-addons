@@ -7,17 +7,17 @@
                     <t t-call="report.external_layout">
 				
                      <div class="page">  
-                             <table width="100%" style="font-size:25px">
+                             <table width="100%">
 				<tr>
 					<td colspan="3">
                                              <div t-if="o.picking_type_id.code=='incoming' ">
-						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（明细） </h3>
                                               </div>  
                                              <div t-if="o.picking_type_id.code=='outgoing' ">
-						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（明细）</h3>
                                               </div>   
                                              <div t-if="o.picking_type_id.code=='internal' ">
-						<h1 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> </h1>
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（明细） </h3>
                                               </div>                                                  
 					</td>
 				</tr>
@@ -33,7 +33,7 @@
 					</td>
 				</tr>
                                </table>
-                              <table width="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto;font-size:25px">
+                              <table width="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto">
 			<thead>
 				<tr>
 					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
@@ -62,12 +62,13 @@
                                 
 			</tfoot>
 		</table>
-               <table width="100%" style="font-size:25px">
+               <table width="100%">
                     <tr height="150%">
-                            <td width="33%">业务经办：</td>
-                            <td width="33%">开票：</td>
-                            <td width="34%">保管员：</td>
-                     </tr>
+                            <td width="25%">业务经办：</td>
+                            <td width="25%">开票：</td>
+                            <td width="25%">保管员：</td>
+                            <td width="25%">班组： <span t-field="o.note"/></td>							
+					</tr>
                </table>			        			                           
                           </div>
                     </t>
