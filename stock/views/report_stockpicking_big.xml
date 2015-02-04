@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_picking_big">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+				
+                     <div class="page">  
+                            <table  width ="100%">
+				<tr>
+					<td colspan="3">
+                                             <div t-if="o.picking_type_id.code=='incoming' ">
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/> 汇总）</h3>
+                                              </div>  
+                                             <div t-if="o.picking_type_id.code=='outgoing' ">
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h3>
+                                              </div>   
+                                             <div t-if="o.picking_type_id.code=='internal' ">
+						<h3 align="center">湖北金龙新材料股份有限公司<span t-field="o.picking_type_id.name"/>（汇总）</h3>
+                                              </div>                                                  
+					</td>
+				</tr>
+				<tr>
+					<td width="65%">
+						客户名称：<span t-field="o.partner_id"/>
+					</td>
+					<td>
+						<span t-field="o.date"/>
+					</td>
+					<td style="text-align:right">
+						单号：<span t-field="o.name"/>
+					</td>
+				</tr>
+                               </table>
+                              <table  width ="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto">
+			<thead>
+				<tr>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 产品</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 宽幅/色号</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">卷数</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 平方米</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 单价</th>
+					<th  style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> 总价</th>
+				</tr>
+			</thead>
+			<tbody t-foreach="o.move_lines2" t-as="move_lines">
+				<tr >
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="move_lines.product_id"/> </td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> <span t-field="move_lines.number"/></td>
+ 					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"> <span t-field="move_lines.product_qty"/></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.money"/></td>
+					 <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="move_lines.amount"/></td>
+ 				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"> 合计（<span t-field="o.name"/>）：</th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"><span t-field="o.number"/></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.squre"/></th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px">  </th>
+					<th style="border:1px solid #000; border-collapse:collapse; padding:3px 5px;text-align:right"><span t-field="o.Amount"/></th>
+				</tr>
+			</tfoot>
+		</table>
+               <table width="100%">
+                    <tr height="150%">
+                            <td width="25%">业务经办：</td>
+                            <td width="25%">开票：</td>
+                            <td width="25%">保管员：</td>
+                            <td width="25%">班组： <span t-field="o.note"/></td>
+                     </tr>
+               </table>
+                             
+                          </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+    </data>
+</openerp>

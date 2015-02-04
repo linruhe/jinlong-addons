@@ -3,13 +3,21 @@
     <data>
 
         <report 
-            string="Picking" 
-            id="action_report_picking" 
+            string="汇总单（小）" 
+            id="action_report_picking_small" 
             model="stock.picking" 
             report_type="qweb-pdf"
             name="stock.report_picking" 
             file="stock.report_picking" 
         />
+        <report 
+            string="汇总单（大）" 
+            id="action_report_picking_big" 
+            model="stock.picking" 
+            report_type="qweb-pdf"
+            name="stock.report_picking_big" 
+            file="stock.report_picking_big" 
+        />		
         <report 
             string="Inventory" 
             id="action_report_inventory" 
@@ -19,16 +27,24 @@
             file="stock.report_inventory" 
         />
         <report 
-            string="明细单打印" 
-            id="action_report_pickingmx" 
+            string="明细单打印(小)" 
+            id="action_report_pickingmx_small" 
             model="stock.picking" 
             report_type="qweb-pdf"
             name="stock.report_pickingmx" 
             file="stock.report_pickingmx" 
         />
         <report 
-            string="发货单打印" 
-            id="action_report_pickingfh" 
+            string="明细单打印(大)" 
+            id="action_report_pickingmx_big" 
+            model="stock.picking" 
+            report_type="qweb-pdf"
+            name="stock.report_pickingmx_big" 
+            file="stock.report_pickingmx_big" 
+        />
+        <report 
+            string="发货单打印(大)" 
+            id="action_report_pickingfh_big" 
             model="stock.picking" 
             report_type="qweb-pdf"
             name="stock.report_pickingfh" 
