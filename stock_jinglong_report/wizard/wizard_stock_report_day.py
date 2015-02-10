@@ -68,7 +68,7 @@ class wizard_stock_report_day(osv.osv_memory):
                 'name': _('Stock report at day'),
                 'view_type': 'form',
                 'view_mode': 'graph,tree',
-                'res_model': 'stock.quant.history',
+                'res_model': 'stock.quant.history2',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
 			}
@@ -78,7 +78,7 @@ class wizard_stock_report_day(osv.osv_memory):
                 'name': _('Stock Report At day'),
                 'view_type': 'form',
                 'view_mode': 'graph,tree',
-                'res_model': 'stock.quant.history',
+                'res_model': 'stock.quant.history2',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
             }

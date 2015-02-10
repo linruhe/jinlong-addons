@@ -212,3 +212,52 @@ SELECT MIN(id) as id,
                 AS foo
                 GROUP BY move_id, location_id, company_id, product_id, product_categ_id, date, price_unit_on_quant, source,picking_type_id,lot_id
             )""")
+class stock_quant_history2(osv.osv):
+    _name = 'stock.quant.history2'
+    _auto = False
+    _order = 'date asc'
+    _columns = {
+        'move_id': fields.many2one('stock.move', 'Stock Move', required=True),
+        'location_id': fields.many2one('stock.location', 'Location', required=True),
+        'company_id': fields.many2one('res.company', 'Company'),
+        'product_id': fields.many2one('product.product', 'Product', required=True),
+        'product_categ_id': fields.many2one('product.category', 'Product Category', required=True),
+        'quantity': fields.float('\xe6\x95\xb0\xe9\x87\x8f', readonly=True),
+        'date': fields.datetime('Operation Date'),
+        'price_unit_on_quant': fields.float('Value'),
+        'picking_type_id': fields.many2one('stock.picking.type', 'Stock Picking Type'),
+        'source': fields.char('Source'),
+        'lot_id': fields.many2one('stock.production.lot', 'Lot'),
+        'partner_id': fields.many2one('res.partner', 'Partner'),
+    }
+
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'stock_quant_history2')
+        cr.execute("""
+            CREATE OR REPLACE VIEW stock_quant_history2 AS (
+
+select
+
+      stock_quant_history.id, 
+      stock_quant_history.move_id, 
+      stock_quant_history.company_id,
+      stock_quant_history.product_id, 
+      stock_quant_history.product_categ_id, 
+      stock_quant_history.quantity, 
+      stock_quant_history.date, 
+      stock_quant_history.price_unit_on_quant, 
+      stock_quant_history.source, 
+      stock_quant_history.picking_type_id, 
+      stock_quant_history.lot_id,
+      stock_picking.partner_id
+
+from stock_quant_history 
+
+left join
+     stock_move on stock_quant_history.move_id = stock_move.id
+left join 
+     stock_picking on stock_move.picking_id = stock_picking.id
+where stock_quant_history.lot_id is not null						
+            )""")
+	

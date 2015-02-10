@@ -68,7 +68,7 @@ class wizard_stock_report_month(osv.osv_memory):
                 'name': _('Stock Value At Month'),
                 'view_type': 'form',
                 'view_mode': 'graph,tree',
-                'res_model': 'stock.quant.history',
+                'res_model': 'stock.quant.history2',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
 			}
@@ -78,7 +78,7 @@ class wizard_stock_report_month(osv.osv_memory):
                 'name': _('Stock Report At Month'),
                 'view_type': 'form',
                 'view_mode': 'graph,tree',
-                'res_model': 'stock.quant.history',
+                'res_model': 'stock.quant.history2',
                 'type': 'ir.actions.act_window',
                 'context': ctx,
             }

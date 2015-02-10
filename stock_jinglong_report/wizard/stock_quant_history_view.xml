@@ -3,7 +3,7 @@
     <data>
 		<record id="stock_quant_history_tree" model="ir.ui.view">
             <field name="name">stock.quant.history.tree</field>
-            <field name="model">stock.quant.history</field>
+            <field name="model">stock.quant.history2</field>
             <field name="arch" type="xml">
                 <tree string="产品库存统计">
                     <field name="product_id" string="产品"/>
@@ -19,7 +19,7 @@
         </record>
 		<record id="view_stock_history_report_graph" model="ir.ui.view">
             <field name="name">stock.quant.history.graph</field>
-            <field name="model">stock.quant.history</field>
+            <field name="model">stock.quant.history2</field>
             <field name="arch" type="xml">
                 <graph string="产品库存统计" type="pivot">
                     <field name="product_id" type="row" string="产品"/>
@@ -30,7 +30,7 @@
         </record>
     <record id="view_stock_history_report_search" model="ir.ui.view">
         <field name="name">stock.quant.history.search</field>
-        <field name="model">stock.quant.history</field>
+        <field name="model">stock.quant.history2</field>
         <field name="arch" type="xml">
             <search string="产品库存统计">
                 <field name="product_id" string="产品"/>
@@ -46,6 +46,7 @@
                     <filter string="公司" icon="terp-go-home" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
                     <filter string="单据类型" icon="terp-go-home" context="{'group_by':'picking_type_id'}" name='group_by_picking_type_id'/>
 					<filter string="月份" icon="terp-go-today" context="{'group_by':'date:month'}" name='group_by_month'/>
+					<filter string="业务伙伴" icon="terp-go-today" context="{'group_by':'partner_id'}" name='group_by_partner'/>
                  </group>
             </search>
         </field>
