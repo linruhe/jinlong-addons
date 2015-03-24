@@ -2529,6 +2529,7 @@ class stock_inventory(osv.osv):
         'company_id': fields.many2one('res.company', 'Company', required=True, select=True, readonly=True, states={'draft': [('readonly', False)]}),
         'location_id': fields.many2one('stock.location', 'Inventoried Location', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'product_id': fields.many2one('product.product', 'Inventoried Product', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
+        'categ_id': fields.many2one('product.category', 'Product Category', readonly=True, states={'draft': [('readonly', False)]}, help="product category."),
         'product_tmpl_id': fields.many2one('product.template', 'Product template', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Product to focus your inventory on a particular Product."),
         'attribute_value_1': fields.many2one('product.attribute.value','Attribute_1'),
         'package_id': fields.many2one('stock.quant.package', 'Inventoried Pack', readonly=True, states={'draft': [('readonly', False)]}, help="Specify Pack to focus your inventory on a particular Pack."),
@@ -2672,7 +2673,10 @@ class stock_inventory(osv.osv):
             args += (inventory.product_id.id,)
         if inventory.product_tmpl_id:
             domain += ' and product_product.product_tmpl_id = %s'
-            args += (inventory.product_tmpl_id.id,)			
+            args += (inventory.product_tmpl_id.id,)
+        if inventory.categ_id:
+            domain += ' and product_template.categ_id = %s'
+            args += (inventory.categ_id.id,)            			
         if inventory.attribute_value_1:
             domain += ' and product_product.tempname like %s'
             args += ('%'+inventory.attribute_value_1.name+'%',)                    
@@ -2683,7 +2687,8 @@ class stock_inventory(osv.osv):
         cr.execute('''
            SELECT product_id, sum(qty) as product_qty, location_id, lot_id as prod_lot_id, package_id, owner_id as partner_id
            FROM stock_quant 
-           left join product_product on product_product.id = stock_quant.product_id 
+           left join product_product on product_product.id = stock_quant.product_id
+           left join product_template on product_template.id = product_product.product_tmpl_id 
            WHERE''' + domain + '''
            GROUP BY product_id, location_id, lot_id, package_id, partner_id
         ''', args)		
