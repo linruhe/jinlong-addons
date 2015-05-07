@@ -26,7 +26,7 @@
 						客户名称：<span t-field="o.partner_id"/>
 					</td>
 					<td>
-						<span t-field="o.date"/>
+						<span t-field="o.date_done"/>
 					</td>
 					<td style="text-align:right">
 						单号：<span t-field="o.name"/>
