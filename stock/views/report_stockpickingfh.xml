@@ -67,7 +67,7 @@
 									<table width="100%" style="margin:10px; border:2px solid #000; border-collapse:collapse; margin:5px auto;font-size:25px">
 										<tr>
                                    <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"  width="50%"><br/><p>1、司机姓名：</p><p>2、车辆号码：</p><p>3、证件号码：</p>4、联系电话:</td>
-                                   <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"  width="50%"><p>业务员：</p><p>电话：</p><p>付款方式：□ 我方付；□ 对方付</p><p>运费结算：</p><p>重量：</p></td>
+                                   <td style="border:1px solid #000; border-collapse:collapse; padding:3px 5px"  width="50%"><p>业务员：</p><p>电话：</p><p>付款方式：</p><p>运费结算：□ 我方付；□ 对方付</p><p>重量：</p></td>
 										</tr>
 									</table>
                               </tr>
