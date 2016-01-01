@@ -47,8 +47,60 @@
             <field name="view_id" ref="view_product_query_wizard"/>
             <field name="target">new</field>
         </record>
+		
+		<record id="view_stock_quant_internal_tree" model="ir.ui.view">
+            <field name="name">stock.quant.internal.tree</field>
+            <field name="model">stock.quant.internal</field>
+            <field name="arch" type="xml">
+                <tree string="产品库存查询">
+                    <field name="product_id" string="产品"/>
+                    <field name="conumber" string="色号"/>
+                    <field name="width" string="宽幅"/>
+                    <field name="qty" string="数量"/>
+                </tree>
+            </field>
+        </record>
+		
+    <record id="view_stock_quant_internal_search" model="ir.ui.view">
+        <field name="name">stock.quant.internal.search</field>
+        <field name="model">stock.quant.internal</field>
+        <field name="arch" type="xml">
+            <search string="查询">
+                <field name="product_id" string="产品"/>
+                <field name="conumber" string="色号"/>
+                <field name="width" string="宽幅"/>
+				<separator/>
+                <group expand="1" string="分组器">
+                    <filter string="产品" icon="terp-accessories-archiver" context="{'group_by':'product_id'}" name='group_by_product_id'/>
+                    <filter string="色号" icon="terp-accessories-archiver" context="{'group_by':'conumber'}" name='group_by_conumber'/>
+                    <filter string="宽幅" icon="terp-accessories-archiver" context="{'group_by':'width'}"/>
+                 </group>
+            </search>
+        </field>
+    </record>
+		<record id="view_stock_quant_internal_graph" model="ir.ui.view">
+            <field name="name">stock.quant.internal.graph</field>
+            <field name="model">stock.quant.internal</field>
+            <field name="arch" type="xml">
+                <graph string="库存查询" type="pivot">
+                    <field name="product_id" type="row" string="产品"/>
+                    <field name="qty" type="measure" string="数量"/>
+                </graph>
+            </field>
+        </record>	
+		
+        <record id="action_stock_quant_internal" model="ir.actions.act_window">
+            <field name="name">库存查询（快速）</field>
+            <field name="res_model">stock.quant.internal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,tree</field>
+            <field name="view_id" ref="view_stock_quant_internal_tree"/>
+        </record>			
+	
+		
         <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.menu_stock_product" sequence="15"/>
         <menuitem id="menu_action_product_query_wizard" string="库存查询向导" action="action_product_query_wizard" parent="stock.next_id_61" groups="base.group_user" sequence="15"/>
+        <menuitem id="menu_action_stock_quant_internal" string="库存查询（快速）" action="action_stock_quant_internal" parent="stock.next_id_61" groups="base.group_user" sequence="15"/>
         <menuitem id="menu_quants2" name="通用库存查询" parent="stock.next_id_61" sequence="20" action="stock.quantsact" groups="base.group_user"/>
 
     </data>

@@ -260,4 +260,39 @@ left join
      stock_picking on stock_move.picking_id = stock_picking.id
 where stock_quant_history.lot_id is not null						
             )""")
+class stock_quant_internal(osv.osv):
+    _name = 'stock.quant.internal'
+    _auto = False
+    _order = 'product_id asc'
+    _columns = {
+        'location_id': fields.many2one('stock.location', 'Location', required=True),
+        'company_id': fields.many2one('res.company', 'Company'),
+        'product_id': fields.many2one('product.product', 'Product', required=True),
+        'qty': fields.float('\xe6\x95\xb0\xe9\x87\x8f', readonly=True),
+        'conumber': fields.char('conumber', readonly=True),
+        'width': fields.char('width', readonly=True),
+        'name': fields.char('name', readonly=True),
+    }
+
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'stock_quant_internal')
+        cr.execute("""
+            CREATE OR REPLACE VIEW stock_quant_internal AS (
+
+select
+     stock_quant.id,
+	 stock_quant.location_id,
+	 stock_quant.company_id,
+	 stock_quant.product_id,
+	 stock_quant.qty,
+     stock_quant.conumber,
+	 stock_quant.width
+
+from stock_quant 
+
+left join
+     stock_location on stock_quant.location_id = stock_location.id 
+where stock_location.usage = 'internal'						
+            )""")
 	
